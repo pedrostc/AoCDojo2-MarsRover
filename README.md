@@ -1,7 +1,9 @@
 # Art of Code Dojo 2 - The Mars Rover
-# Introduction to TDD and pair programming with JavaScript
 ## Table of contents
 - [Getting started with this repository](#getting-started-with-this-repository)
+- [Coding Challenge - String Calculator](#coding-challenge---string-calculator)
+  - [Rules](#rules)
+  - [Challenge Tasks](#challenge-tasks)
 - [TDD Basics](#tdd-basics)
   - [Red-Green-Refactor](#red-green-refactor)
   - [Cycle steps as design opportunities](#cycle-steps-as-design-opportunities)
@@ -12,9 +14,6 @@
   - [Asserting](#asserting)
     - [Errors](#errors)
   - [Filenames](#filenames)
-- [Coding Challenge - String Calculator](#coding-challenge---string-calculator)
-  - [Rules](#rules)
-  - [Challenge Tasks](#challenge-tasks)
   
 
 ## Getting started with this repository
@@ -25,6 +24,28 @@ After cloning, run `npm install` on the root of this repository to install all n
 To run tests, you can use the `npm run test` command. If you want to enable file watch, so the tests re-run automatically after saving a file, you can use the `npm run test:watch` command.
 
 The test framework is configured to look for files inside of the `src` folder and to look for test files with the `.spec.js` extension.
+
+## Coding Challenge - Mars Rover Kata
+[Original kata](https://kata-log.rocks/mars-rover-kata)
+
+### Description
+You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop an API that translates the commands sent from earth to instructions that are understood by the rover, and returns the rovers new position after the command execution is done.
+
+### Rules.
+- TDD all the way. Keep working on the Red-Green-Refactor cycle through the session.
+- Do one task at a time. The trick is to learn to work incrementally.
+- Make sure you only test for correct inputs. Incorrect inputs and exceptions can be handled as an extra after the main tasks are done.
+
+### Challenge Tasks
+- The rover starts on a given X and Y coordinates and facing a given direction (ex.: `X: 0, Y:0, Direction: North`).
+- It should receive an string with an array of commands. The possible commands are: `F` to move forwards, `B` to move backwards, `L` to rotate left and `R` to rotate right.
+    + The command input will be something like `FFBBLRLR`.
+- The rover should execute all commands in the informed string and, when its done, return its new position containing X and Y coordinates and the direction it's facing.
+- Implement the wrap around behaviour, when the rover reaches the edge of the map it should appear on the other side like it's just finishing a round trip on the planet.
+    + The map has a set Height and Width.
+- Implement colision detection.
+    + This means that we can add obstacles to the map.
+    + When a movement would make the rover hit an obstacle, the Rover should stop executing the commands and inform its current position.
 
 ## TDD Basics
 Test-Driven Development (TDD) is a software development methodology where you write a test first and then write the code to make the test pass. The tests should reflect one of the requirements or parts of it.  It works on a cycle where first we write tests that express what your system should do; then you write your code to make it meet the expectations expressed in the test, and then refactor your code to enhance its design. This cycle is also known as the Red-Green-Refactor cycle.
@@ -39,6 +60,12 @@ During the TDD cycle, we have separate opportunities to think about different as
 - On the Red step, we will make decisions about the API design: what its contract looks like and what to expect.
 - On the Green stage, we define the bare minimum that we need to deliver the requirement specified by the test.
 - On the Refactor step, we can focus on the design of the solution, organizing the code better, removing duplications and applying patterns.
+
+### How to start - Zero, One, Many
+Normaly it can be a bit dificult to figure how to start testing, one way of dealing with that is by using the Zero-One-Many approach.
+- Zero: What's the behaviour when my input is nothing. This is a good place to start and gives the opportunity to think about the contract of our API.
+- One: What's the behaviour when I provide one input to my API?
+- Many: When I have list on inputs, how does my API behave?
 
 ### TDD side effects
 This approach to development has some side effects:
@@ -62,28 +89,28 @@ The idea is that both participants in the pair take turns as the driver on every
 In this repository, we're using [Jest](https://jestjs.io/en/) as our test framework.
 
 ### Writing tests
-To write a test, you should use the `it` function. It takes a string as its first argument and a function as the second. The string is the test description, and the function is the test code:
-```js
-it('should receive a CSV string', function() { /* Test code here */ });
+To write a test, you should use the `test` function. It takes a string as its first argument and a function as the second. The string is the test description, and the function is the test code:
+```ts
+test('should receive a CSV string', function() { /* Test code here */ });
 ```
 
-You can use the `describe` function to group your tests. It has the same signature as the `it` function, receiving a string and a function as arguments. You should add your tests to the body of the second argument:
-```js
+You can use the `describe` function to group your tests. It has the same signature as the `test` function, receiving a string and a function as arguments. You should add your tests to the body of the second argument:
+```ts
 describe('add', function() {
-    it('should receive a csv string', function() { /* Test code here */ });
-    it('should sum all comma separated elements in the string', function() { /* Test code here */ });
+    test('should receive a csv string', function() { /* Test code here */ });
+    test('should sum all comma separated elements in the string', function() { /* Test code here */ });
 });
 ```
 #### Re-using the same test for multiple test cases
 You can use dynamic test to simplify your code.
-```js
+```ts
 var testCases = [
     { input: "input1", expected: "output1" },
     { input: "input2", expected: "output2" }
 ];
 
 testCases.forEach(function({input, expected}) {
-    it(`should output ${expected} for input ${input}.`, function() {
+    test(`should output ${expected} for input ${input}.`, function() {
         const actual = methodUnderTest(input);
 
         expect(actual).toEqual(expected);
@@ -104,7 +131,7 @@ expect(value).not.toBeFalsy(false);
 There are two styles to assert errors: one uses a try/catch block and asserts on the error object in the catch block. The second uses the [toThrow](https://jestjs.io/docs/en/expect#tothrowerror) method of the `expect` object. For this second method you need to wrap your code in a function for it to work.
 ```ts
 // Using a try/catch block
-it('should throw an error', function() {
+test('should throw an error', function() {
     try {
         brokenFunction();
     } catch(error) {
@@ -115,7 +142,7 @@ it('should throw an error', function() {
 
 ```ts
 // Using the expect.toThrow method
-it('should throw an error', function() {
+test('should throw an error', function() {
     var wrapperFunction = function() {
         borkenFunction();
     }
@@ -129,18 +156,3 @@ it('should throw an error', function() {
 ### Filenames
 This repository is using the following convention for test file names: `<name>.spec.ts`.
 If you use the `.spec.ts` extension for your file, the test runner will pick it up automatically and execute all available tests.
-
-## Coding Challenge - Mars Rover Kata
-[Original kata](https://kata-log.rocks/mars-rover-kata)
-
-### Description
-You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop an API that translates the commands sent from earth to instructions that are understood by the rover, and returns the rovers new position after the command execution is done.
-
-### Rules.
-- TDD all the way. Keep working on the Red-Green-Refactor cycle through the session.
-- Do one task at a time. The trick is to learn to work incrementally.
-- Make sure you only test for correct inputs. Incorrect inputs and exceptions can be handled as an extra after the main tasks are done.
-
-
-### Challenge Tasks
-- The planet is represented by a rectangle
