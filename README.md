@@ -1,7 +1,8 @@
 # Art of Code Dojo 2 - The Mars Rover
 ## Table of contents
 - [Getting started with this repository](#getting-started-with-this-repository)
-- [Coding Challenge - String Calculator](#coding-challenge---string-calculator)
+- [Coding Challenge - Mars Rover](#coding-challenge---mars-rover-kata)
+  - [Description](#description)
   - [Rules](#rules)
   - [Challenge Tasks](#challenge-tasks)
 - [TDD Basics](#tdd-basics)
