@@ -37,7 +37,7 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 - Do one task at a time. The trick is to learn to work incrementally.
 - Make sure you only test for correct inputs. Incorrect inputs and exceptions can be handled as an extra after the main tasks are done.
 
-### Challenge Tasks
+### Requeriments
 - The rover starts on a given X and Y coordinates and facing a given direction (ex.: `X: 0, Y:0, Direction: North`).
 - It should receive an string with a list of commands. The possible commands are:
     + Translation: `F` to move forwards, `B` to move backwards.
