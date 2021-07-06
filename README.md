@@ -39,7 +39,9 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 
 ### Challenge Tasks
 - The rover starts on a given X and Y coordinates and facing a given direction (ex.: `X: 0, Y:0, Direction: North`).
-- It should receive an string with an array of commands. The possible commands are: `F` to move forwards, `B` to move backwards, `L` to rotate left and `R` to rotate right.
+- It should receive an string with a list of commands. The possible commands are:
+    + Translation: `F` to move forwards, `B` to move backwards.
+    + Rotation: `L` to rotate left and `R` to rotate right.
     + The command input will be something like `FFBBLRLR`.
 - The rover should execute all commands in the informed string and, when its done, return its new position containing X and Y coordinates and the direction it's facing.
 - Implement the wrap around behaviour, when the rover reaches the edge of the map it should appear on the other side like it's just finishing a round trip on the planet.
