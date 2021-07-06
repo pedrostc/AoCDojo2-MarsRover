@@ -13,7 +13,7 @@
 - [JavaScript Testing](#javascript-testing)
   - [Writing tests](#writing-tests)
   - [Asserting](#asserting)
-    - [Errors](#errors)
+    + [Errors](#errors)
   - [Filenames](#filenames)
   
 
@@ -47,8 +47,7 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 - Implement the wrap around behaviour, when the rover reaches the edge of the map it should appear on the other side like it's just finishing a round trip on the planet.
     + The map has a set Height and Width.
 - Implement colision detection.
-    + This means that we can add obstacles to the map.
-    + When a movement would make the rover hit an obstacle, the Rover should stop executing the commands and inform its current position.
+    + When a movement would make the rover hit an obstacle, the Rover should stop executing and inform that it found an obstacle.
 
 ## TDD Basics
 Test-Driven Development (TDD) is a software development methodology where you write a test first and then write the code to make the test pass. The tests should reflect one of the requirements or parts of it.  It works on a cycle where first we write tests that express what your system should do; then you write your code to make it meet the expectations expressed in the test, and then refactor your code to enhance its design. This cycle is also known as the Red-Green-Refactor cycle.
