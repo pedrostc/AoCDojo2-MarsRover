@@ -4,6 +4,7 @@
 - [Coding Challenge - String Calculator](#coding-challenge---string-calculator)
   - [Rules](#rules)
   - [Challenge Tasks](#challenge-tasks)
+- [How to pair program remotely](#how-to-pair-program-remotely)
 - [TDD Basics](#tdd-basics)
   - [Red-Green-Refactor](#red-green-refactor)
   - [Cycle steps as design opportunities](#cycle-steps-as-design-opportunities)
@@ -46,6 +47,15 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 - Implement colision detection.
     + This means that we can add obstacles to the map.
     + When a movement would make the rover hit an obstacle, the Rover should stop executing the commands and inform its current position.
+
+## How to pair program remotely
+There are a couple of ways we can share the Pilot/Co-pilot seat remotely.
+
+### Visual studio code Live Share
+If both participants have [VS Code](https://code.visualstudio.com/Download), one of the participants can start a [liveshare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) session. [More informatiom](https://code.visualstudio.com/learn/collaboration/live-share).
+
+### Teams screenshare control
+On a teams call you can share your screen with the other participants and they can ask to control your computer. For more information [check here](https://support.microsoft.com/en-us/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8?ui=en-us&rs=en-us&ad=us)
 
 ## TDD Basics
 Test-Driven Development (TDD) is a software development methodology where you write a test first and then write the code to make the test pass. The tests should reflect one of the requirements or parts of it.  It works on a cycle where first we write tests that express what your system should do; then you write your code to make it meet the expectations expressed in the test, and then refactor your code to enhance its design. This cycle is also known as the Red-Green-Refactor cycle.
