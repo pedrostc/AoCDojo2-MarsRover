@@ -4,7 +4,9 @@
   "description": "Repo for the second session of the Art of Codo Dojo, featuring the Mars Rover kata.",
   "main": "index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest --runInBand",
+    "test:watch": "jest --runInBand --watchAll",
+    "cover": "jest --coverage"
   },
   "repository": {
     "type": "git",
