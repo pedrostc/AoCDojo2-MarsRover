@@ -1,14 +1,14 @@
 {
-  "name": "typescript-jest-base",
+  "name": "art-of-code-dojo-2-mars-rover",
   "version": "1.0.0",
-  "description": "Base project to work with typescript and jest.",
+  "description": "Repo for the second session of the Art of Codo Dojo, featuring the Mars Rover kata.",
   "main": "index.ts",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedrostc/typescript-jest-base.git"
+    "url": "git+https://github.com/pedrostc/AoCDojo2-MarsRover.git"
   },
   "keywords": [
     "base",
@@ -20,9 +20,9 @@
   "author": "Pedro Osternack Correa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pedrostc/typescript-jest-base/issues"
+    "url": "https://github.com/pedrostc/AoCDojo2-MarsRover/issues"
   },
-  "homepage": "https://github.com/pedrostc/typescript-jest-base#readme",
+  "homepage": "https://github.com/pedrostc/AoCDojo2-MarsRover#readme",
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "jest": "^27.0.6",
