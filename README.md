@@ -1,7 +1,8 @@
 # Art of Code Dojo 2 - The Mars Rover
 ## Table of contents
 - [Getting started with this repository](#getting-started-with-this-repository)
-- [Coding Challenge - String Calculator](#coding-challenge---string-calculator)
+- [Coding Challenge - Mars Rover](#coding-challenge---mars-rover-kata)
+  - [Description](#description)
   - [Rules](#rules)
   - [Challenge Tasks](#challenge-tasks)
 - [How to pair program remotely](#how-to-pair-program-remotely)
@@ -13,7 +14,7 @@
 - [JavaScript Testing](#javascript-testing)
   - [Writing tests](#writing-tests)
   - [Asserting](#asserting)
-    - [Errors](#errors)
+    + [Errors](#errors)
   - [Filenames](#filenames)
   
 
@@ -37,16 +38,17 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 - Do one task at a time. The trick is to learn to work incrementally.
 - Make sure you only test for correct inputs. Incorrect inputs and exceptions can be handled as an extra after the main tasks are done.
 
-### Challenge Tasks
+### Requeriments
 - The rover starts on a given X and Y coordinates and facing a given direction (ex.: `X: 0, Y:0, Direction: North`).
-- It should receive an string with an array of commands. The possible commands are: `F` to move forwards, `B` to move backwards, `L` to rotate left and `R` to rotate right.
+- It should receive an string with a list of commands. The possible commands are:
+    + Translation: `F` to move forwards, `B` to move backwards.
+    + Rotation: `L` to rotate left and `R` to rotate right.
     + The command input will be something like `FFBBLRLR`.
 - The rover should execute all commands in the informed string and, when its done, return its new position containing X and Y coordinates and the direction it's facing.
 - Implement the wrap around behaviour, when the rover reaches the edge of the map it should appear on the other side like it's just finishing a round trip on the planet.
     + The map has a set Height and Width.
 - Implement colision detection.
-    + This means that we can add obstacles to the map.
-    + When a movement would make the rover hit an obstacle, the Rover should stop executing the commands and inform its current position.
+    + When a movement would make the rover hit an obstacle, the Rover should stop executing and inform that it found an obstacle.
 
 ## How to pair program remotely
 There are a couple of ways we can share the Pilot/Co-pilot seat remotely.
